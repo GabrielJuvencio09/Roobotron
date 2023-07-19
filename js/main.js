@@ -1,27 +1,18 @@
-const subtrair = document.querySelector('#subtrair')
-const somar = document.querySelector('#somar')
-const braco = document.querySelector('#braco')
-
-const partes = document.querySelectorAll('.controle-contador')
-const controle = document.querySelectorAll('.controle-ajuste')
+const controle = document.querySelectorAll('[data-controle]')
 
 controle.forEach((elemento) =>{
     elemento.addEventListener('click', (evento) =>{
-        manipulardados(evento.target.textContent)
+        manipulardados(evento.target.dataset.controle, evento.target.parentNode)
     })
     })
 
-console.log(partes)
+function manipulardados(operaçao , controle){
+    const peca = controle.querySelector('[data-contador]')
 
-
-
-
-
-function manipulardados(operaçao){
     if(operaçao === "-"){
-        braco.value --
+        peca.value --
     }else (
-        braco.value  ++
+        peca.value  ++
     )
 }
 
